@@ -20,6 +20,9 @@ WHERE customer_id IN (
 
 -- 3. Employees need to be scheduled for next week based on how many cupcakes have been ordered and not yet processed.
 -- Write a query that gets the total number of cupcakes from unprocessed orders.
+SELECT SUM(num_cupcakes)
+FROM orders
+WHERE processed = 'f';
 
 -- 4. Management needs an inventory report. They want to know how many cupcakes have been ordered of each type.
 -- Write a query that shows the name of each cupcake and the sum of cupcakes ordered for that cupcake type 
