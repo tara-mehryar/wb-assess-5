@@ -42,18 +42,14 @@ LEFT JOIN orders o ON c.id = o.cupcake_id
 group BY c.name
 order BY c.name ASC
 
-
 -- 5. Marketing now wants to send an email to its top customers, thanking them for their business and offering them a special deal for next month.
 -- Write a query that shows the email address of each customer and the total number of cupcakes they’ve ordered. 
 -- Results should be sorted by total number of cupcakes, in descending order.
-SELECT *
-FROM customers
-GROUP BY (
-    SELECT SUM(num_cupcakes)
-    FROM orders
-)
-ORDER BY descending;
-
+SELECT c.email, COALESCE(SUM(o.num_cupcakes), 0) AS sum
+FROM customers c 
+LEFT JOIN orders o ON c.id = o.customer_id
+GROUP BY c.email
+ORDER BY sum DESC;
 
 -- 6. Uh oh — it looks like there might have been an issue with a recent batch of funfetti cupcakes 
 -- (someone might have ordered non-edible sparkles to put in the icing instead of edible ones). 
