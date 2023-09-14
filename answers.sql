@@ -10,6 +10,13 @@ FROM customers;
 -- To look up the receipts, we need to know which orders Elizabeth placed.
 -- Write a query that lists the order ids for all orders placed by customers with the first name Elizabeth and last name Crocker. 
 -- Use a SUBQUERY to do this, not a join.
+SELECT id
+FROM orders
+WHERE customer_id IN (
+    SELECT id
+    FROM customers
+    WHERE id = 1
+);
 
 -- 3. Employees need to be scheduled for next week based on how many cupcakes have been ordered and not yet processed.
 -- Write a query that gets the total number of cupcakes from unprocessed orders.
