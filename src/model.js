@@ -9,8 +9,9 @@ export class Human extends Model {
     return this.toJSON();
   }
 
-  getFullName() {
+  getFullName(Human) {
     // TODO: Implement this method
+   return `${fname} ${lname}`
   }
 }
 
