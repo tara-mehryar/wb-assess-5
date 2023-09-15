@@ -2,7 +2,15 @@ import { Op } from 'sequelize';
 import { Animal, Human } from './model.js';
 
 // Get the human with the primary key 2
-export const query1 = 
+export const query1 = (Human) => {
+    return {
+        humanId: 2,
+        fname,
+        lname,
+        email,
+    }
+}
+console.log(query1(Human))
 `SELECT *
 FROM humans 
 WHERE human_id = 2;`
@@ -52,11 +60,7 @@ WHERE email NOT LIKE '%gmail%';`
 // Continue reading the instructions before you move on!
 
 // Print a directory of humans and their animals
-export async function printHumansAndAnimals() {
-    try{
-        const 
-    }
-}
+export async function printHumansAndAnimals() {}
 
 // Return a Set containing the full names of all humans
 // with animals of the given species.
