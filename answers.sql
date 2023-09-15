@@ -57,4 +57,12 @@ ORDER BY sum DESC;
 -- Write a query that selects the first name, last name and email address of customers who have processed orders of funfetti cupcakes. 
 -- Even if a customer has multiple outstanding orders of funfetti, their email should only appear once.
 
+SELECT DISTINCT c.fname, c.lname, c.email
+FROM customers c
+INNER JOIN orders o ON c.id = o.customer_id
+INNER JOIN cupcakes cup ON o.cupcake_id = cup.id
+WHERE o.cupcake_id = 5 AND cup.id = 5 AND o.processed = 't';
+
+
+
 
