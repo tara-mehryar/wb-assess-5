@@ -16,29 +16,31 @@ export class Human extends Model {
 }
 
 // TODO: Human.init()
-Human.init({
+Human.init(
+  {
   human_id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     allowNull: false,
   },
   fname: {
-    type: DataTypes.VARCHAR(),
+    type: DataTypes.VARCHAR,
     allowNull: false,
   },
   lname: {
-    type: DataTypes.VARCHAR(),
+    type: DataTypes.VARCHAR,
     allowNull: false,
   },
   email: {
-    type: DataTypes.VARCHAR(),
+    type: DataTypes.VARCHAR,
     allowNull: false,
   }
 },
 {
   modelName: 'human',
   sequelize: db,
-});
+},
+);
 
 export class Animal extends Model {
   [util.inspect.custom]() {
@@ -72,7 +74,7 @@ Animal.init({
 })
 
 // TODO: Define Relationship
-Human.hasMany(Animal, { foreignKey: 'animal_id' });
+Human.hasMany(Animal, { foreignKey: 'human_id' });
 Animal.belongsTo(Human, { foreignKey: 'human_id'});
 
 
