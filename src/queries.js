@@ -2,15 +2,15 @@ import { Op } from 'sequelize';
 import { Animal, Human } from './model.js';
 
 // Get the human with the primary key 2
-export const query1 = (Human) => {
+export const query1 = (humanId, fname, lname, email) => {
     return {
         humanId: 2,
-        fname,
-        lname,
-        email,
-    }
+        fname: fname,
+        lname: lname,
+        email: email,
+    };
 }
-console.log(query1(Human))
+console.log(query1())
 `SELECT *
 FROM humans 
 WHERE human_id = 2;`
